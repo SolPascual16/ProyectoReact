@@ -1,19 +1,22 @@
-const React from 'react';
-import {Navbar} from 'react-bootstrap';
+import React from 'react'
 
-export const NavBar () => {
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-    return (
-      <Navbar bg="dark" variant="dark">
-      <Container>
-      <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-      <Nav className="me-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#features">Features</Nav.Link>
-        <Nav.Link href="#pricing">Pricing</Nav.Link>
-      </Nav>
-      </Container>
+
+export const NavBar = ( ) => {
+
+
+  return (
+    <Navbar bg="dark" variant="dark" expand="lg">
+          <Container>
+          <Navbar.Brand href="#home">Feli-Pet</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Inicio</Nav.Link>
+            <Nav.Link href="#quienesSomos">¿Quienes Somos?</Nav.Link>
+            <Nav.Link href="#Contacto">Contacto</Nav.Link>
+          </Nav>
+          </Container>
     </Navbar>
-    )
-
+  )
 }
