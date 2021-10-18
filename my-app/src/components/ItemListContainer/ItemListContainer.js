@@ -1,30 +1,49 @@
-import React, {useEffect, useState} from "react",
-import { pedirProductos} from "../../helpers/pedirProductos",
-import { ItemList } from "./itemList"
+import React, {useEffect, useState} from "react"
+import { useParams } from "react-router-dom"
+import { pedirProductos} from "../../helpers/pedirProductos"
+import { ItemList } from "./ItemList"
+
+
 
 export const ItemListContainer = ()=>{
 
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => {  
+
+    const {categoryId} = useParams()
+
+
+    useEffect(()=>{
         setLoading(true)
 
         pedirProductos()
-            .then((res)=> {
-                setItems(res)
-            }).catch((err)=>console.log(err))
+            .then((res) => {
 
-    }, [])
+                if (categoryId) {
+                    setItems( res.filter( prod => prod.category === categoryId) )
+                } else {
+                    setItems(res)
+                }
+            })
+            .catch((err) => console.log(err))
+            .finally(() => {
+                setLoading(false)
+            })
+
+    }, [categoryId])
 
 
     return ( 
         <section className = "container my-5">
-           {
-               loading
+
+            <h2>Nuestros Productos</h2>
+            <hr/>
+            {
+                loading 
                     ? <h2>Cargando...</h2>
-                    : <itemList productos={items}/>
-           }
+                    : <ItemList productos={items}/>
+            }
 
         </section>
     )
