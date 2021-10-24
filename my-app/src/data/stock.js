@@ -6,7 +6,8 @@ export const stock = [
          descripcion: "Lorem ipsum",
          precio: 100,
          img: "https://via.placeholder.com/250",
-         category: "categoria1"
+         category: "Categoria 1",
+         stock: 30,
      },
      {
          id: 1,
@@ -14,7 +15,8 @@ export const stock = [
          descripcion: "Lorem ipsum",
          precio: 250,
          img: "https://via.placeholder.com/250",
-         category: "categoria2"
+         category: "Categoria 2",
+         stock: 30,
      },
      {
          id: 1,
@@ -22,7 +24,8 @@ export const stock = [
          descripcion: "Lorem ipsum",
          precio: 350,
          img: "https://via.placeholder.com/250",
-         category: "categoria1"
+         category: "Categoria 1",
+         stock: 30,
      },
      {
          id: 1,
@@ -30,7 +33,8 @@ export const stock = [
          descripcion: "Lorem ipsum",
          precio: 450,
          img: "https://via.placeholder.com/250",
-         category: "categoria2"
+         category: "Categoria 2",
+         stock: 30,
      },
      {
          id: 1,
@@ -38,7 +42,8 @@ export const stock = [
          descripcion: "Lorem ipsum",
          precio: 550,
          img: "https://via.placeholder.com/250",
-         category: 2
+         category: "Categoria 2",
+         stock: 30,
      },
      {
          id: 1,
@@ -46,7 +51,8 @@ export const stock = [
          descripcion: "Lorem ipsum",
          precio: 150,
          img: "https://via.placeholder.com/250",
-         category: 3
+         category: "Categoria 1",
+         stock: 30,
      }
  
  ]

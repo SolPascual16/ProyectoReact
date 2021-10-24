@@ -9,6 +9,7 @@ import {
   Redirect
 } from 'react-router-dom'
 import { CartWidget } from './components/NavBar/CartWidget';
+import { Form } from './components/Form.js/Form';
 
 
 
@@ -37,7 +38,7 @@ function App() {
       </Route>
 
       <Route exact path = "/Contacto"> 
-        <h1>Contacto</h1>
+        <Form/>
       </Route>
 
       <Route exact path = "/Cart"> 
