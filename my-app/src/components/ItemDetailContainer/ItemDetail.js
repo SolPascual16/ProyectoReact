@@ -4,9 +4,9 @@ import {ItemCount} from "../ItemCount/ItemCount"
 
 export const ItemDetail = ({id,nombre,descripcion,precio,img,category, stock}) => { 
 
-    const {goBack} = useHistory()
+    const [goBack ]= useHistory()
 
-    const {cantidad, setCantidad} = useState(10)          
+    const [cantidad, setCantidad] = useState(10)          
 
     const addToCart = () => {
 
@@ -26,7 +26,7 @@ export const ItemDetail = ({id,nombre,descripcion,precio,img,category, stock}) =
 
         <div className = "Container">
             <div>
-                <img variant="top" src={img}/>
+                <img alt="" variant="top" src={img}/>
             </div>
             <div>
                 <h1>{nombre}</h1>

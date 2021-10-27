@@ -2,36 +2,72 @@ import React, {useState} from 'react'
 
 export const Form = () => {
 
-    const {nombre, setNombre} = useState("")
-    const {subject, setSubject} = useState("")
+    const [values, setValues] = useState({
+        nombre: '',
+        email: '',
+        numero:'',
+        subject: '',
+    })
 
-    const handleSubject = (e) => {
-
+    const handleInputChange = (e) => {
+        console.log(e.target.value)
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
     }
-
-    const handleNombre = (e) => {
-        setNombre(e.target.value)
-    }
-
-
     const handleSubmit = (e) => { 
-    e.preventDefault()
-    console.log(nombre)
-
+        e.preventDefault()
+        console.log(values)
     }
     return (
         <div className="container">
             <h2>Contacto</h2>
+            <hr/>
             <form onSubmit={handleSubmit}>
-                <input className="form-control my-3" type="text" placeholder="Nombre" value="Nombre" onChange={handleNombre}>
+
+                <input 
+                className="form-control my-3" 
+                type="text" 
+                placeholder="Nombre" 
+                name="nombre"
+                value={values.nombre} 
+                onChange={handleInputChange}
+                >
                 </input>
-                <input className="form-control my-3" type="text" placeholder="E-mail" value="E-mail">
+
+                <input 
+                className="form-control my-3" 
+                type="text" 
+                placeholder="Email" 
+                name="email"
+                value={values.email}
+                onChange={handleInputChange}
+                >
                 </input>
-                <input className="form-control my-3" type="text" placeholder="TEL/CEL" value="TEL/CEL">
+                <input 
+                className="form-control my-3" 
+                type="text" 
+                placeholder="TEL/CEL" 
+                name="numero"
+                value={values.numero}
+                onChange={handleInputChange}
+                >                   
                 </input>
-                <input className="form-control my-3" type="text" placeholder="Subject" value="Subject"value="Nombre" onChange={handleSubject}>
+                <input 
+                className="form-control my-3" 
+                type="text" 
+                placeholder="Subject" 
+                name="subject"
+                value={values.subject}
+                onChange={handleInputChange}
+                >
                 </input>
-                <textarea className="form-control my-3" type="text" placeholder="Ingresa tu consulta"></textarea>
+                <textarea 
+                className="form-control my-3" 
+                type="text" 
+                placeholder="Ingresa tu consulta">
+                </textarea>
                 <button className="btn btn-primary" type="submit">Enviar</button>
             </form>
         </div>
