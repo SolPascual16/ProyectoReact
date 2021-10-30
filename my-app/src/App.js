@@ -1,3 +1,4 @@
+import React from 'react';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 import {NavBar} from './components/NavBar/NavBar';
@@ -8,51 +9,53 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom'
-import { CartWidget } from './components/NavBar/CartWidget';
 import { Form } from './components/Form.js/Form';
-
-
-
-
+import { CartScreen } from './components/cartScreen/cartScreen';
+import { UIProvider } from './context/UIContext';
+import { CartProvider } from './context/cartContext';
 
 function App() {
 
   return (
     <>
-    <BrowserRouter>
+      <UIProvider>
+        <CartProvider>
+          <BrowserRouter>
 
-    <NavBar/>
+            <NavBar/>
 
-    <Switch>
+            <Switch>
 
-      <Route exact path = "/"> 
-              <ItemListContainer />
-      </Route>
+                <Route exact path = "/"> 
+                        <ItemListContainer />
+                </Route>
 
-      <Route exact path="/productos/:categoryId">
-              <ItemListContainer />
-      </Route>
+                <Route exact path="/productos/:categoryId">
+                        <ItemListContainer />
+                </Route>
 
-      <Route exact path="/Detail/:itemId">
-        <ItemDetailContainer/>
-      </Route>
+                <Route exact path="/Detail/:itemId">
+                  <ItemDetailContainer/>
+                </Route>
 
-      <Route exact path = "/Contacto"> 
-        <Form/>
-      </Route>
+                <Route exact path = "/Contacto"> 
+                  <Form/>
+                </Route>
 
-      <Route exact path = "/Cart"> 
-        <CartWidget/>
-      </Route>
+                <Route exact path = "/Cart"> 
+                <CartScreen/>
+                </Route>
 
-      <Route  path ="*"> 
-      <Redirect to="/"/>  
-      </Route>
+                <Route  path ="*"> 
+                <Redirect to="/"/>  
+                </Route>
 
-    </Switch>
+            </Switch>
 
-    </BrowserRouter>
-    </>    
+          </BrowserRouter>
+        </CartProvider>
+      </UIProvider> 
+    </>
   );
 }
 

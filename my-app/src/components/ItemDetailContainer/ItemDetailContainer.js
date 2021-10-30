@@ -1,14 +1,15 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useContext, useState} from "react"
 import { useParams } from "react-router"
+import { UIContext } from "../../context/UIContext"
 import { pedirProductos } from '../../helpers/pedirProductos'
 import { ItemDetail } from './ItemDetail'
 
 export const ItemDetailContainer = () => {
 
     const [items,setItems] = useState(null)
-    const [loading, setLoading] = useState(false)
+    const {loading, setLoading} = useContext(UIContext)
 
-    const [itemId] = useParams()
+    const {itemId} = useParams()
 
     useEffect(() => {
         setLoading(true)
@@ -25,7 +26,7 @@ export const ItemDetailContainer = () => {
             .catch((err) => console.log(err))
             .finally(() => setLoading(false))
         
-    }, [itemId])
+    }, [itemId,setLoading])
 
 
 

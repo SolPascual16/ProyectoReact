@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from "react"
-import { useParams } from "react-router-dom"
-import { pedirProductos} from "../../helpers/pedirProductos"
-import { ItemList } from "./ItemList"
+import React, {useEffect, useState, useContext} from 'react'
+import { useParams } from 'react-router'
+import { UIContext } from '../../context/UIContext'
+import { pedirProductos } from '../../helpers/pedirProductos'
+import { ItemList } from './ItemList'
+
 
 
 
 export const ItemListContainer = ()=>{
 
     const [items, setItems] = useState([])
-    const [loading, setLoading] = useState(false)
-
+    const {loading, setLoading} = useContext(UIContext)
 
     const {categoryId} = useParams()
 
@@ -31,7 +32,7 @@ export const ItemListContainer = ()=>{
                 setLoading(false)
             })
 
-    }, [categoryId])
+    }, [categoryId, setLoading])
 
 
     return ( 
