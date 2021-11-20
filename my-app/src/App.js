@@ -2,6 +2,7 @@ import React from 'react';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 import {NavBar} from './components/NavBar/NavBar';
+import { Compra } from './components/compra/compra';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter,
@@ -27,11 +28,11 @@ function App() {
             <Switch>
 
                 <Route exact path = "/"> 
-                        <ItemListContainer />
+                  <ItemListContainer />
                 </Route>
 
                 <Route exact path="/productos/:categoryId">
-                        <ItemListContainer />
+                  <ItemListContainer />
                 </Route>
 
                 <Route exact path="/Detail/:itemId">
@@ -44,6 +45,9 @@ function App() {
 
                 <Route exact path = "/Cart"> 
                 <CartScreen/>
+                </Route>
+                <Route exact path = "/Compra"> 
+                <Compra/>
                 </Route>
 
                 <Route  path ="*"> 

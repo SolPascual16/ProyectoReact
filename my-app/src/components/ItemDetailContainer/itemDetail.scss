@@ -1,0 +1,100 @@
+.producto{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(0, 0, 0);
+    border-radius: 05px;
+    align-items: center;
+    img{
+        margin: 20px;
+        padding: 10px;
+        width: 20rem;
+        border-radius: 10px;
+    }
+    .detalle{
+        color: whitesmoke;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        margin-left: 25%;
+        h1{
+            font-size: 40px;
+        }
+        h4{
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+        .finalizarCompra{
+            text-decoration: none;
+            margin-top: 25px;
+            padding: 10px;
+            background-color: rgb(131, 7, 7);
+            border: 1px solid rgb(131, 7, 7);
+            border-radius: 05px;
+            color: whitesmoke;
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            width: 20rem;
+        }
+        .finalizarCompra:hover{
+            text-decoration: none;
+            margin-top: 25px;
+            padding: 10px;
+            background-color: rgb(105, 6, 6);
+            border: 1px solid rgb(105, 6, 6);
+            border-radius: 05px;
+            color: whitesmoke;
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            width: 20rem;
+        }
+        .btnVolver{
+            text-decoration: none;
+            margin-top: 25px;
+            margin-left: 20px;
+            padding: 10px;
+            background-color: whitesmoke;
+            border: 1px solid whitesmoke;
+            border-radius: 05px;
+            color: black;
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            width: 20rem;
+        }
+        .btnVolver:hover{
+            text-decoration: none;
+            margin-top: 25px;
+            padding: 10px;
+            background-color: rgb(197, 193, 193);
+            border: 1px solid whitesmoke;
+            border-radius: 05px;
+            color: black;
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            width: 20rem;
+        }
+        .agregarAlCarrito{
+            margin-top: 25px;
+            padding: 10px;
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            background-color: rgb(4, 143, 11);
+            border: 1px solid  rgb(4, 143, 11);
+            border-radius: 05px;
+            color: whitesmoke;
+            width: 20rem;
+        }
+
+        .agregarAlCarrito:hover{
+            margin-top: 25px;
+            padding: 10px;
+            background-color: rgb(4, 117, 10);
+            border: 1px solid   rgb(4, 117, 10);
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 05px;
+            color: whitesmoke;
+            width: 20rem;
+        }
+        
+    }
+
+}

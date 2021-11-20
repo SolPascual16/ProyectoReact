@@ -2,15 +2,16 @@ import React, {useContext, useState} from "react"
 import { useHistory} from 'react-router-dom'
 import { CartContext } from "../../context/cartContext"
 import {ItemCount} from "../ItemCount/ItemCount"
+import { Link } from "react-router-dom"
+import './itemDetail.scss'
+import { Container } from "react-bootstrap"
+import {MdShoppingCart} from 'react-icons/md'
 
-
-export const ItemDetail = ({id,nombre,descripcion,precio,img,category, stock}) => { 
-
+export const ItemDetail = ({id,nombre,precio,img,category,stock}) => { 
     const {goBack}= useHistory()
     const {addToCart, isInCart} = useContext(CartContext)
     const [cantidad, setCantidad] = useState(0)          
     const handleAgregar = () => {
-
         const newItem = {
             id, 
             nombre, 
@@ -25,31 +26,31 @@ export const ItemDetail = ({id,nombre,descripcion,precio,img,category, stock}) =
     }
     
     return (
-        <div className = "Container">
-            <div>
-                <img alt="" variant="top" src={img}/>
-            </div>
-            <div>
-                <h1>{nombre}</h1>
-                <p>{descripcion}</p>
-                <h4>Precio: ${precio}</h4>
-            {isInCart(id)
-            ? 
-            <>
-                <link to="/cart" className="btn btn-success">Finalizar compra</link>
-                <link to="/" className="btn btn-success">Volver al inicio</link>
-            </>
-            :
-            <>
-                <ItemCount Cantidad={cantidad} setCantidad={setCantidad} max={stock}/>
-                <button className="btn btn-success my-2" variant="primary" onClick={handleAgregar}>Add to Cart</button>
-            </>
+        <Container className="container my-5">
+            <h1 className="miH1">Distribuidora Feli-Pet</h1>
+            <hr/>
+            <div className="producto">
+                    <img alt="" variant="top" src={img}/>
+                    <section className="detalle">
+                        <h1>{nombre}</h1>
+                        <h4>${precio}</h4>
+                        <hr/>
+                    {isInCart(id)
+                    ? 
+                    <>
+                        <Link to="/cart" className="finalizarCompra">Finalizar compra</Link>
+                        <Link to="/" className="btnVolver">Volver al Inicio</Link>
+                    </>
+                    :
+                    <>
+                        <ItemCount Cantidad={cantidad} setCantidad={setCantidad} max={stock}/>
+                        <button className="agregarAlCarrito" variant="primary" onClick={handleAgregar}>Agregar al Carrito <MdShoppingCart/></button>
+                    </>
 
-            }
-            </div>         
-            <hr/>       
-            <button className="btn btn-outline-primary mx-4" variant="primary" onClick={goBack}>Volver al Inicio</button>
-        </div>
+                    }
+                    </section>         
+            </div>
+        </Container>
     )   
 }        
   

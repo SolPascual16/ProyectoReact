@@ -1,23 +1,22 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import { Link } from "react-router-dom";
+import {MdRemoveRedEye} from 'react-icons/md'
+import './itemList.scss'
 
-export const Item = ({id,nombre,descripcion,precio,img,category}) => {
+export const Item = ({id,nombre,precio,img,category}) => {
 
     return (
-
-        <Card style={{ width: '18rem' }} className = "m-3">
-            <Card.Img variant="top" src={img} />
-            <Card.Body>
-                <Card.Title>{nombre}</Card.Title>
-                <Card.Text>{descripcion}</Card.Text>
-                <Card.Text>Precio: ${precio}</Card.Text>
-                <Card.Text>Categoria: {category}</Card.Text>
-                <Link to={`/detail/${id}`}>
-                <Button variant="primary">¡Lo quiero!</Button>
-                </Link>
-            </Card.Body>
-        </Card>
-        
+            <div className="miCard">
+                <section className="section">
+                    <img alt="" className="img" variant="top" src={img} />
+                    <h1 className="titulo">{nombre}</h1>
+                    <p className="precio">${precio}</p>
+                    <Link to={`/detail/${id}`}>
+                    <Button variant="primary">
+                    <MdRemoveRedEye className="eyeIcon"/>    Ver producto</Button>
+                    </Link>
+                </section>
+            </div>       
     )
 }

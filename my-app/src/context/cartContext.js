@@ -1,41 +1,57 @@
-import React, {createContext, useState, } from "react"
+import React, { createContext, useEffect, useState } from 'react'
 
-export const CartContext = createContext() 
 
-export const CartProvider = ({children}) => {
+export const CartContext = createContext()
 
-    const [carrito, setCarrito] = useState([])
+const init = JSON.parse(localStorage.getItem('carrito')) || []
+
+export const CartProvider = ( {children} ) => {
+
+    const [carrito, setCarrito] = useState(init)
+
+    console.log(carrito)
+    
     const addToCart = (item) => {
-        setCarrito( [...carrito, item])
+      setCarrito( [...carrito, item] )
     }
-    const calcularCantidad = () => {
-        return carrito.reduce( (acc, prod) => acc + prod.cantidad, 0)
-    }
-    const calcularTotal = () => {
-        return carrito.reduce( (acc, prod) => acc + prod.cantidad * prod.precio, 0)
-    }
-    const isInCart = (item) => {
-        return carrito.some((prod) => prod.id === item.id)
-    }
-    const vaciarCarrito = () => {
-        setCarrito([])
-    }
+    
     const removeItem = (itemId) => {
-        const newCart = carrito.filter((prod) => prod.id !== itemId)
-        setCarrito(newCart)
+      const newCart = carrito.filter( (prod) => prod.id !== itemId)
+      setCarrito( newCart )
+    }
+  
+    const calcularCantidad = () => {
+      return carrito.reduce( (acc, prod) => acc + prod.cantidad, 0 )
     }
 
-    return( 
-        <CartContext.Provider value={{
+    const calcularTotal = () => {
+      return carrito.reduce( (acc, prod) => acc + prod.cantidad * prod.price, 0)
+    }
+
+    const isInCart = (itemId) => {
+      return carrito.some( (prod) => prod.id === itemId)
+    }
+  
+    const vaciarCarrito = () => {
+      setCarrito([])
+    }
+    
+    useEffect(()=>{
+      localStorage.setItem('carrito', JSON.stringify(carrito))
+    }, [carrito])
+  
+    return (
+        <CartContext.Provider value={ {
             carrito,
             addToCart,
             removeItem,
             calcularCantidad,
-            vaciarCarrito, 
-            isInCart, 
+            vaciarCarrito,
+            isInCart,
             calcularTotal
-             }}>
-                 {children}
+        }}>
+            {children}
         </CartContext.Provider>
     )
+
 }

@@ -21,7 +21,7 @@ export const Form = () => {
         console.log(values)
     }
     return (
-        <div className="container">
+        <div className="container my-5">
             <h2>Contacto</h2>
             <hr/>
             <form onSubmit={handleSubmit}>

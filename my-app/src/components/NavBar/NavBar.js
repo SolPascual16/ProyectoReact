@@ -3,7 +3,7 @@ import { CartWidget } from './CartWidget';
 import {Link} from 'react-router-dom';
 import { Navbar, Nav, Container,} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './NavBar.css';
+import './NavBar.scss';
 
 
 
@@ -16,15 +16,13 @@ export const NavBar = () => {
           <Link to="/" className="estilosNav">Feli-Pet</Link>
           <Nav>
             <Link to="/" className="estilosItems">Inicio</Link>
-            <Link to="/Productos/Categoria 1" className="estilosItems">Categoria 1</Link>
-            <Link to="/Productos/Categoria 2" className="estilosItems">Categoria 2</Link>
+            <Link to="/Productos/Accesorio" className="estilosItems">Accesorios</Link>
+            <Link to="/Productos/Comestible" className="estilosItems">Comestibles</Link>
+            <Link to="/Productos/Juguete" className="estilosItems">Juguetes</Link>
+            <Link to="/Productos/Higiene" className="estilosItems">Higiene</Link>
             <Link to="/Contacto" className="estilosItems">Contacto</Link>
           </Nav>
           <Link to="/Cart"><CartWidget/></Link>
-
-
-        
-
           </Container>
 
     </Navbar>

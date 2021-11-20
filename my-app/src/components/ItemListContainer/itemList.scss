@@ -1,0 +1,58 @@
+.miCard{
+    display: contents;
+    .section{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+        margin: 10px;
+        align-items: center;
+        background-color: rgb(26, 25, 25);
+        border: 1px solid #0e0d0d6a;
+        border-radius: 05px;
+        max-width: 350px;
+        .img{
+            margin: 10px;
+            max-width: 15rem;
+            border-radius: 05px;
+        }
+        .titulo{
+            margin-top: 10px;
+            color: whitesmoke;
+            font-size: 1.5rem;
+            font-family: 'Roboto', sans-serif;
+        }
+        .precio{
+        
+            color: whitesmoke;
+            font-size: 1.5rem;
+            font-family: 'Roboto', sans-serif;
+        }
+        .categoria{
+        
+            color: whitesmoke;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+        }
+        Button{
+            background-color: rgb(4, 143, 11);
+            color: whitesmoke;
+            border: 1px solid  rgb(4, 143, 11);
+            border-radius: 05px;
+            min-width: 15rem;
+            font-family: 'Roboto', sans-serif;
+        }
+        Button:hover{
+            background-color: rgb(4, 117, 10);
+            color: whitesmoke;
+            border: 1px solid rgb(4, 117, 10);
+            border-radius: 05px;
+            min-width: 15rem;
+            font-family: 'Roboto', sans-serif;
+        }
+        .eyeIcon{
+            size: 3rem;
+        }
+    }
+
+}
