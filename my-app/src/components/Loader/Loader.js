@@ -1,6 +1,6 @@
 import React from 'react'
 import {BiLoader} from 'react-icons/bi'
-import './loader.scss'
+import './Loader.scss'
 
 export const Loader = () => {
     return (

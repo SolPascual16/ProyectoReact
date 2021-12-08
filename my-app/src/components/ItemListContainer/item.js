@@ -2,7 +2,7 @@ import React from "react";
 import {Button} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {MdRemoveRedEye} from 'react-icons/md'
-import './itemList.scss'
+import './ItemList.scss'
 
 export const Item = ({id,nombre,precio,img,category}) => {
 

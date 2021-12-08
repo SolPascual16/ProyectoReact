@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './form.scss'
+import './Form.scss'
 
 export const Form = () => {
 
@@ -69,6 +69,7 @@ export const Form = () => {
                 type="text" 
                 placeholder="Ingresa tu consulta">
                 </textarea>
+                <hr/>
                 <button className="miBtn" type="submit">Enviar</button>
             </form>
         </div>

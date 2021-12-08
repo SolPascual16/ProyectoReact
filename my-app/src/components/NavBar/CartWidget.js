@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {MdShoppingCart} from 'react-icons/md'
-import { CartContext } from '../../context/cartContext'
+import { CartContext } from '../../context/CartContext'
 import './NavBar.scss'
 
 export const CartWidget = () => {

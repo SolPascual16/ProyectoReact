@@ -2,7 +2,6 @@ import React from 'react';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 import {NavBar} from './components/NavBar/NavBar';
-import { Compra } from './components/compra/compra';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter,
@@ -11,9 +10,10 @@ import {
   Redirect
 } from 'react-router-dom'
 import { Form } from './components/Form.js/Form';
-import { CartScreen } from './components/cartScreen/cartScreen';
+import { CartScreen } from './components/CartScreen/CartScreen';
 import { UIProvider } from './context/UIContext';
-import { CartProvider } from './context/cartContext';
+import { CartProvider } from './context/CartContext';
+import { Checkout } from './components/Checkout/Checkout';
 
 function App() {
 
@@ -46,8 +46,9 @@ function App() {
                 <Route exact path = "/Cart"> 
                 <CartScreen/>
                 </Route>
-                <Route exact path = "/Compra"> 
-                <Compra/>
+
+                <Route exact path="/Checkout">
+                <Checkout/>
                 </Route>
 
                 <Route  path ="*"> 

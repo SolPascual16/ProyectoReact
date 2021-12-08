@@ -1,14 +1,12 @@
 import React, {useContext, useState} from "react"
-import { useHistory} from 'react-router-dom'
-import { CartContext } from "../../context/cartContext"
+import { CartContext } from "../../context/CartContext"
 import {ItemCount} from "../ItemCount/ItemCount"
 import { Link } from "react-router-dom"
-import './itemDetail.scss'
+import './ItemDetail.scss'
 import { Container } from "react-bootstrap"
 import {MdShoppingCart} from 'react-icons/md'
 
 export const ItemDetail = ({id,nombre,precio,img,category,stock}) => { 
-    const {goBack}= useHistory()
     const {addToCart, isInCart} = useContext(CartContext)
     const [cantidad, setCantidad] = useState(0)          
     const handleAgregar = () => {

@@ -1,13 +1,12 @@
 import React, {useContext} from 'react'
-import { CartContext } from '../../context/cartContext'
+import { CartContext } from '../../context/CartContext'
+import { CartItem } from '../CartItem/CartItem'
 import { Link } from 'react-router-dom'
-import {MdKeyboardArrowDown, MdDeleteOutline} from 'react-icons/md'
-import './cartScreen.scss'
-import { Navbar, Container, Nav, Button} from 'react-bootstrap'
+import {MdKeyboardArrowDown} from 'react-icons/md'
+import './CartScreen.scss'
 
 export const CartScreen = () => {
-
-    const {carrito, vaciarCarrito, removeItem, calcularTotal} = useContext(CartContext)
+    const {carrito, vaciarCarrito, calcularTotal} = useContext(CartContext)
     return (
         <div className="container my-5">
             {
@@ -34,28 +33,7 @@ export const CartScreen = () => {
                             <hr/>
 
                             {
-                                carrito.map((prod)=>(
-                                    <section className="productos" expand="lg">
-                                        <ul className="col-2">
-                                            <img alt="" src={prod.img}/>
-                                        </ul>
-                                        <ul className="col-2">
-                                            <h6>{prod.nombre}</h6>
-                                        </ul>
-                                        <ul className="col-2">
-                                            <p>{prod.cantidad}</p>
-                                        </ul>
-                                        <ul className="col-2">
-                                            <p>${prod.precio}</p>
-                                        </ul>
-                                        <ul className="col-2">
-                                            <p>${prod.precio * prod.cantidad}</p>
-                                        </ul>
-                                        <button className="btn btn-danger m-3 mt-0 mb-4" variant="outline-danger" onClick={ () => removeItem(prod.id)}>
-                                            <MdDeleteOutline className="trash"/>
-                                        </button>
-                                    </section>
-                                ))
+                            <CartItem/>
                             }
                     </div>
                     <hr/>
@@ -65,7 +43,7 @@ export const CartScreen = () => {
                     >
                         Vaciar carrito
                     </button>
-                    <Link to="/Compra" className="btn btn-success mx-3" onClick={vaciarCarrito}>
+                    <Link to="/Checkout" className="btn btn-success mx-3">
                             Terminar mi compra
                     </Link>
                 </>
